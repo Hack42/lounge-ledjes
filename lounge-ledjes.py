@@ -36,7 +36,7 @@ def connect_and_subscribe():
   client = MQTTClient(client_id, mqtt_server)
   client.connect()
   print('Connected to %s MQTT broker, subscribed to %s topic' % (mqtt_server, topic_sub))
-  client.publish('hack42/lounge-ledjes', str(sta_if.ifconfig() ))
+  client.publish('hack42/lounge-ledjes', str(sta_if.ifconfig()), retain=True)
   return client
 
 def restart_and_reconnect():
